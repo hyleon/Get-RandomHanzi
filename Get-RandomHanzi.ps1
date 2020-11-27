@@ -9,9 +9,10 @@
     }
     $count = 1
     do {
-        $Hanzihex = '{0:x}' -f $(Get-Random -Minimum 0x4e00 -Maximum 0x9fa5)
-        $Hanzibyte = ($Hanzihex -split '(\w{2})'|?{$_}|%{[int16]"0x$_"})[1,0]
-        $Hanzi += [System.Text.Encoding]::GetEncoding('Unicode').GetString($Hanzibyte)
+        #$Hanzihex = '{0:x}' -f $(Get-Random -Minimum 0x4e00 -Maximum 0x9fa5)
+        #$Hanzibyte = ($Hanzihex -split '(\w{2})'|?{$_}|%{[int16]"0x$_"})[1,0]
+        #$Hanzi += [System.Text.Encoding]::GetEncoding('Unicode').GetString($Hanzibyte)
+        $Hanzi += [char]$(Get-Random -Minimum 0x4e00 -Maximum 0x9fa5)        
         $count += 1
     }
     while ($count -le $Length)
